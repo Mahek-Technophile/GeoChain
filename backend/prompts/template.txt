@@ -1,0 +1,18 @@
+You are a geospatial expert. A user has asked: "{query}"
+
+Return:
+- Step-by-step GIS analysis plan in JSON.
+- A short reasoning explanation for each step.
+
+Format:
+{
+  "steps": [
+    {
+      "step": "Download elevation data for region X",
+      "tool": "GeoPandas/Rasterio",
+      "reasoning": "We need to analyze elevation to identify low-lying areas",
+      "parameters": { ... }
+    },
+    ...
+  ]
+}

@@ -1,0 +1,30 @@
+<!-- frontend/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GeoLLM UI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <h1>GeoLLM Spatial Query</h1>
+  <input id="query" placeholder="Enter spatial query..." />
+  <button onclick="sendQuery()">Submit</button>
+
+  <div id="results">
+    <h3>Chain of Thought:</h3>
+    <pre id="log"></pre>
+
+    <h3>Workflow Steps:</h3>
+    <ul id="steps"></ul>
+
+    <h3>Map Output:</h3>
+    <div id="map" style="height: 400px;"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
