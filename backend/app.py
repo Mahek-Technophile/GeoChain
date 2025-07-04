@@ -1,11 +1,7 @@
-# backend/app.py
-
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from utils.llm_client import get_llm_response
-from utils.parser import parse_llm_output
-from utils.geoprocessor import simulate_geoprocessing
 
 app = FastAPI()
 
@@ -23,12 +19,10 @@ class Query(BaseModel):
 
 @app.post("/query")
 async def handle_query(input: Query):
-    raw_output = get_llm_response(input.query)
-    workflow = parse_llm_output(raw_output)
-    result = simulate_geoprocessing(workflow)
-
-    return {
-        "map_url": result["map_url"],
-        "workflow_steps": result["steps"],
-        "log": result["log"]
-    }
+    try:
+        raw_output = get_llm_response(input.query)
+        print("LLM Raw Output:\n", raw_output)
+        return {"llm_output": raw_output}
+    except Exception as e:
+        print("ERROR:", str(e))
+        return {"error": str(e)}
