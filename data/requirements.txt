@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pydantic
+requests
+python-dotenv
+
+# If using for GIS simulation or plan to use real geoprocessing tools later
+geopandas
+rasterio
+
+# Optional if parsing JSON, etc.
+orjson
