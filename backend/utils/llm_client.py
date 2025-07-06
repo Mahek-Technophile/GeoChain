@@ -1,25 +1,13 @@
 import requests
 
-def get_llm_response(user_query: str) -> str:
-    prompt = f"""
-You are a geospatial analyst. Break down the following user query into a detailed step-by-step GIS workflow using real geoprocessing tools and open datasets. Then explain your reasoning.
-
-Query: {user_query}
-
-Respond in this format:
-
-[STEPS]
-1. ...
-2. ...
-[REASONING]
-...
-"""
+def get_llm_response(query: str) -> str:
     response = requests.post(
-        "http://localhost:11434/api/generate",
+        "http://localhost:11434/api/chat",
         json={
             "model": "llama3",
-            "prompt": prompt,
-            "stream": False
+            "messages": [
+                {"role": "user", "content": query}
+            ]
         }
     )
-    return response.json()["response"]
+    return response.json()["message"]["content"]
