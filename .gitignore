@@ -1,17 +1,22 @@
-# Ignore Python virtual environment
+# Python environment
 .venv/
-
-# Ignore compiled Python files
 __pycache__/
 *.pyc
 
-# Ignore data outputs
-data/elevation/*.tif
-data/elevation/*.hgt
-data/imagery_clipped/
-data/imagery_raw/
-
-# Ignore IDE settings
+# OS/Editor files
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 
+# Raw and heavy data (still allow clipped GeoTIFFs)
+data/elevation/N19E072.hgt
+data/elevation/dem_mumbai.tif
+data/imagery_raw/
+data/imagery_clipped/imagery_*.tif  # Keep if needed, else comment out
+
+# Satellite ZIPs
+*.zip
+
+# Notebooks cache
+.ipynb_checkpoints/
