@@ -1,0 +1,17 @@
+# Ignore Python virtual environment
+.venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore data outputs
+data/elevation/*.tif
+data/elevation/*.hgt
+data/imagery_clipped/
+data/imagery_raw/
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
